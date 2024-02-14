@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>
+<link rel="stylesheet" href="css/flower.css" />
+<style>
+  /* Additional styling for the images */
+  .falling-img {
+    position: absolute;
+    width: 150px; /* Adjust as needed */
+    height: 150px; /* Adjust as needed */
+    z-index: 100;
+    transform: rotate(-15deg); /* Rotate the images slightly sideways */
+  }
+</style>
+</head>
+<body>
+<div id="thankyou"><b>Thank you for being my girlfriend</b></div>
+<div class="flower">
+  <div class="f-wrapper">
+    <div class="flower__line"></div>
+    <div class="f">
+      <div class="flower__leaf flower__leaf--1"></div>
+      <div class="flower__leaf flower__leaf--2"></div>
+      <div class="flower__leaf flower__leaf--3"></div>
+      <div class="flower__leaf flower__leaf--4"></div>
+      <div class="flower__leaf flower__leaf--5"></div>
+      <div class="flower__leaf flower__leaf--6"></div>
+      <div class="flower__leaf flower__leaf--7"></div>
+      <div class="flower__leaf flower__leaf--8 flower__fall-down--yellow"></div>
+    </div>
+  </div>
+
+  <div class="f-wrapper f-wrapper--2">
+    <div class="flower__line"></div>
+    <div class="f">
+      <div class="flower__leaf flower__leaf--1"></div>
+      <div class="flower__leaf flower__leaf--2"></div>
+      <div class="flower__leaf flower__leaf--3"></div>
+      <div class="flower__leaf flower__leaf--4"></div>
+      <div class="flower__leaf flower__leaf--5"></div>
+      <div class="flower__leaf flower__leaf--6"></div>
+      <div class="flower__leaf flower__leaf--7"></div>
+      <div class="flower__leaf flower__leaf--8 flower__fall-down--pink"></div>
+    </div>
+  </div>
+
+  <div class="f-wrapper f-wrapper--3">
+    <div class="flower__line"></div>
+    <div class="f">
+      <div class="flower__leaf flower__leaf--1"></div>
+      <div class="flower__leaf flower__leaf--2"></div>
+      <div class="flower__leaf flower__leaf--3"></div>
+      <div class="flower__leaf flower__leaf--4"></div>
+      <div class="flower__leaf flower__leaf--5"></div>
+      <div class="flower__leaf flower__leaf--6"></div>
+      <div class="flower__leaf flower__leaf--7"></div>
+      <div class="flower__leaf flower__leaf--8 flower__fall-down--purple"></div>
+    </div>
+  </div>
+  <div class="flower__glass"></div>
+</div>
+
+<script>
+  // Function to create and animate falling images
+  function createFallingImage(src) {
+    const img = new Image();
+    img.src = src;
+    img.classList.add("falling-img");
+    document.body.appendChild(img);
+
+    // Randomize starting position
+    const startX = Math.random() * window.innerWidth;
+    img.style.left = startX + "px";
+
+    // Animate falling
+    const endY = window.innerHeight;
+    const duration = Math.random() * 6000 + 4000; // Adjust duration for slower falling
+    img.animate([{ transform: `translateY(0px)` }, { transform: `translateY(${endY}px)` }], {
+      duration: duration,
+      iterations: 10,
+      fill: "forwards",
+      easing: "linear",
+    });
+
+    // Remove image from DOM after animation ends
+    img.addEventListener("animationend", () => {
+      img.remove();
+    });
+  }
+
+  // Trigger creation of falling images
+  // Example usage:
+  // createFallingImage("path/to/image.jpg");
+  // Repeat this line with different image paths as needed
+  createFallingImage("picture1.jpg");
+  createFallingImage("picture2.jpg");
+  createFallingImage("picture3.jpg");
+  createFallingImage("picture4.jpg");
+  createFallingImage("picture5.jpg");
+  createFallingImage("picture6.jpg");
+  createFallingImage("picture8.jpg");
+  createFallingImage("picture9.jpg");
+  createFallingImage("picture10.jpg");
+  createFallingImage("picture11.jpg");
+  createFallingImage("picture12.jpg");
+  createFallingImage("picture13.jpg");
+  
+
+</script>
+</body>
+</html>
